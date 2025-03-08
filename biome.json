@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["pnpm-lock.yaml", ".react-router"]
+    "ignore": ["pnpm-lock.yaml", ".react-router", "renovate.json"]
   },
   "formatter": {
     "enabled": true,
