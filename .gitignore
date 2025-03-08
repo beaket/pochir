@@ -83,13 +83,16 @@ web_modules/
 .cache
 .parcel-cache
 
+# Mac OS
+.DS_Store
+
 # Next.js build output
 .next
 out
 
-# Nuxt.js build / generate output
-.nuxt
-dist
+# React Router
+/.react-router/
+/build/
 
 # Gatsby files
 .cache/
