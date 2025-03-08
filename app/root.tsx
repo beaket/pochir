@@ -1,4 +1,11 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import {
+  isRouteErrorResponse,
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "react-router";
 import type { Route } from "./+types/root";
 import "./app.css";
 
@@ -31,6 +38,12 @@ export default function App() {
   return <Outlet />;
 }
 
-export function ErrorBoundary(_props: Route.ErrorBoundaryProps) {
-  return <main>error</main>;
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  if (isRouteErrorResponse(error) && error.status === 404) {
+    return <main>404 - Page Not Found</main>;
+  }
+
+  if (error instanceof Error) return <main>{error.message}</main>;
+
+  return <main>An unexpected error occurred. Please try again later.</main>;
 }
